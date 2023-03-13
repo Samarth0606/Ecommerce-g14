@@ -9,6 +9,12 @@
                   <h5 class="card-title"> Rs: <%= foundProduct.price %> </h5>
                   <p class="card-text"> <%= foundProduct.desc %> </p>
                   <a href="#" class="btn btn-primary">Buy Product</a>
+                  <a href="#" class="btn btn-success">Add to cart</a>
+                  <a href="/products/<%=foundProduct._id%>/edit" class="btn btn-info">Edit Product</a>
+                  <form action="/products/<%=foundProduct._id%>?_method=Delete" method="post">
+                    <button class="btn btn-danger">Delete</button>
+                  </form>
+
                 </div>
             </div>
     </div>
