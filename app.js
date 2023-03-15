@@ -5,12 +5,13 @@ const mongoose = require('mongoose');
 const seedDB = require('./seed');
 const productRoutes = require("./routes/productRoutes");
 const ejsMate = require('ejs-mate');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const reviewRoutes = require("./routes/review");
 
 
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/shopping-sam-app')
+mongoose.connect('mongodb://127.0.0.1:27017/shopping-g14-app')
 .then(()=>{console.log("DB connected")})
 .catch((err)=>{console.log(err)})
  
@@ -26,9 +27,12 @@ app.use(methodOverride('_method'))
 
 
 // seeding dummy data
-// seedDB();
+seedDB();
 
-app.use(productRoutes);
+// routes
+app.use(productRoutes); 
+app.use(reviewRoutes);
+
 
 const port = 5000;
 app.listen(port,()=>{

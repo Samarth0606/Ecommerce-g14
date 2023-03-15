@@ -21,10 +21,10 @@ router.post('/products' , async (req,res)=>{
     res.redirect('/products');
 })
 
-// route for shwoing the deatails of thre products
+// route for showing the deatails of thre products
 router.get('/products/:id' , async(req,res)=>{
     let {id} = req.params;
-    let foundProduct = await Product.findById(id);
+    let foundProduct = await Product.findById(id).populate('reviews');
     res.render('products/show' , {foundProduct});
 
 })

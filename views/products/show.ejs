@@ -3,7 +3,6 @@
 <div class="row">
     <div class="col-lg-6 product-card">
             <div class="card text-center shadow mt-3 mx-auto" style="width: 18rem;">
-                <img class="img" src="<%=foundProduct.img%>" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h3 class="card-title"> <%= foundProduct.name %> </h3>
                   <h5 class="card-title"> Rs: <%= foundProduct.price %> </h5>
@@ -20,7 +19,41 @@
     </div>
 
     <div class="col-lg-6">
-        <h2 class="disply-5">Leave your review</h2>
+        <h2 class="display-5">Leave your review</h2>
+
+        <form action="/products/<%=foundProduct._id%>/review" method="POST">
+          <div>
+            <label for="star" class="form-label">Rating: </label>
+            <input type="range" name="rating" min="0" max="5" id="star" class="form-control">
+          </div>
+
+          <div>
+            <label for="bolna" class="form-label">Comments: </label>
+            <textarea rows="5" name="comment" id="bolna" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-sm btn-success">Add review</button>
+        </form>
+
+
+
+      <div class="my-3">
+
+        <%for(let review of foundProduct.reviews){%>
+          <div class="card">
+            <div class="card-header">Rating: <%=review.rating%>  </div>
+            <div class="card-body">
+              <p class="card-text"><%=review.comment%></p>
+              <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+
+        <%}%>
+          
+
+        
+        </div>
+
+
     </div>
 
 </div>
