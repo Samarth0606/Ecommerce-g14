@@ -4,6 +4,7 @@
     <div class="col-lg-6 product-card">
             <div class="card text-center shadow mt-3 mx-auto" style="width: 18rem;">
                 <div class="card-body">
+                  <img src="<%= foundProduct.img %>" class="card-img-top" alt="...">
                   <h3 class="card-title"> <%= foundProduct.name %> </h3>
                   <h5 class="card-title"> Rs: <%= foundProduct.price %> </h5>
                   <p class="card-text"> <%= foundProduct.desc %> </p>
@@ -60,6 +61,10 @@
                 Rated: <%=review.rating%> stars
               </p>
               <p class="card-text"><%=review.comment%></p>
+              <% if(review.createdAt){%>
+                  <p><%=review.createdAt.toDateString()%></p>
+              <% } %>
+
               <a href="#" class="btn btn-danger">Delete</a>
             </div>
           </div>

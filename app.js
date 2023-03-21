@@ -27,7 +27,7 @@ app.use(methodOverride('_method'))
 
 
 // seeding dummy data
-seedDB();
+// seedDB();
 
 // routes
 app.use(productRoutes); 
