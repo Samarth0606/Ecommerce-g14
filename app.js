@@ -8,7 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb://localhost:27017/shopping-sam-app')
+mongoose.connect('mongodb://localhost:27017/shopping-g14-app')
     .then(() => console.log('DB Connected'))
     .catch((err) => console.log(err));
 
@@ -41,11 +41,13 @@ app.use((req, res, next) => {
 // Routes
 const productRoutes = require('./routes/product');
 const reviewRoutes = require('./routes/review');
+const userRoutes = require('./routes/auth');
 
 
 
 app.use(productRoutes);
 app.use(reviewRoutes);
+app.use(userRoutes);
 
 
 const port = 5000;
